@@ -83,34 +83,34 @@ document.addEventListener("keyup", (e) => {
 
 
 
-/* BONUS! Dpad functionality for mouse and touch */
-var isPressed = false;
-const removePressedAll = () => {
-   document.querySelectorAll(".dpad-button").forEach(d => {
-      d.classList.remove("pressed")
-   })
-}
-document.body.addEventListener("mousedown", () => {
-   console.log('mouse is down')
-   isPressed = true;
-})
-document.body.addEventListener("mouseup", () => {
-   console.log('mouse is up')
-   isPressed = false;
-   held_directions = [];
-   removePressedAll();
-})
-const handleDpadPress = (direction, click) => {   
-   if (click) {
-      isPressed = true;
-   }
-   held_directions = (isPressed) ? [direction] : []
+ /* BONUS! Dpad functionality for mouse and touch */
+// var isPressed = false;
+// const removePressedAll = () => {
+//    document.querySelectorAll(".dpad-button").forEach(d => {
+//       d.classList.remove("pressed")
+//    })
+// }
+// document.body.addEventListener("mousedown", () => {
+//    console.log('mouse is down')
+//    isPressed = true;
+// })
+// document.body.addEventListener("mouseup", () => {
+//    console.log('mouse is up')
+//    isPressed = false;
+//    held_directions = [];
+//    removePressedAll();
+// })
+// const handleDpadPress = (direction, click) => {   
+//    if (click) {
+//       isPressed = true;
+//    }
+//    held_directions = (isPressed) ? [direction] : []
    
-   if (isPressed) {
-      removePressedAll();
-      document.querySelector(".dpad-"+direction).classList.add("pressed");
-   }
-}
+//    if (isPressed) {
+//       removePressedAll();
+//       document.querySelector(".dpad-"+direction).classList.add("pressed");
+//    }
+// }
 //Bind a ton of events for the dpad
 document.querySelector(".dpad-left").addEventListener("touchstart", (e) => handleDpadPress(directions.left, true));
 document.querySelector(".dpad-up").addEventListener("touchstart", (e) => handleDpadPress(directions.up, true));
